@@ -229,7 +229,7 @@ const getItemsFromTotalCost = () => {
                             {/*Necessary Add-ons*/}
                             <div id="addons" className="venue_container container_main">
                                 <div className="text">
-                                    <h1> Add-ons Selection</h1>
+                                    <h1> Add-ons Selection rv</h1>
                                 </div>
                                 <div className="addons_selection">
                                 {avItems.map((item, index) => (
@@ -237,12 +237,12 @@ const getItemsFromTotalCost = () => {
                                       <div className="img">
                                          <img src={item.img} alt={item.name} />
                                       </div>
-                                      <div className="text"> {item.name} </div>
+                                      <div className="text"> {item.name} + rv </div>
                                          <div> ${item.cost} </div>
                                          <div className="addons_btn">
-                                           <button className="btn-warning" onClick={() => handleDecrementAvQuantity(index)}> &ndash; </button>
+                                           <button className="btn-warning" onClick={() => handleDecrementAvQuantity(index)}> &ndash;</button>
                                            <span className="quantity-value">{item.quantity}</span>
-                                           <button className=" btn-success" onClick={() => handleIncrementAvQuantity(index)}> &#43; </button>
+                                           <button className=" btn-success" onClick={() => handleIncrementAvQuantity(index)}>&#43;</button>
                                          </div>
                                     </div>
                                 ))}
