@@ -252,6 +252,7 @@ function ProductList({ onHomeClick }) {
         e.preventDefault();
         setShowCart(false);
     };
+    const venueTotalCost =0;
     return (
         <div>
             <div className="navbar" style={styleObj}>
@@ -275,29 +276,27 @@ function ProductList({ onHomeClick }) {
             {!showCart ? (
                 <div className="product-grid">
 
-                                <div className="text">
-                                    <p>------------------------------------------</p>
-                                    <h1> Air Purifying Plants </h1>
-                                    <p>------------------------------------------</p>
-                                </div>
-                                <div className="Plant_selection">
-                                   {plantsArray.map((item, index) => (
-                                      <div className="data plant_main" key={index}>
-                                         <div><h1>{item.category}</h1></div>
-                                      <div className="img">
-                                         <img src={item.plants[index].image} alt={item.plants[0].name} />
-                                      </div>
-                                      <div className="text"> {item.plants[index].name} </div>
-                                         <div> ${item.plants[index].cost} </div>
-                                         <div className="Plant_btn">
-                                           <button className="btn-warning" onClick={() => handleDecrementAvQuantity(index)}> &ndash;</button>
-                                           <span className="quantity-value">{item.quantity}</span>
-                                           <button className=" btn-success" onClick={() => handleIncrementAvQuantity(index)}>&#43;</button>
-                                         </div>
-                                    </div>
-                                ))}
-                                </div>                             
-                </div>
+      {plantsArray.map((categoryItem, catIndex) => (
+        <div key={catIndex}>
+          <h2>{categoryItem.category}</h2>
+          
+          <ul>
+            {categoryItem.plants.map((plant, plantIndex) => (
+             <div className="product-card">
+             <li key={plantIndex}>
+                <h3>{plant.name}</h3>
+                <img src={plant.image} alt={plant.name} width="150" />
+                <p>{plant.description}</p>
+                <p>Cost: {plant.cost}</p>
+              </li>
+            </div>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+
             ) : (
                 <CartItem onContinueShopping={handleContinueShopping} />
             )}
