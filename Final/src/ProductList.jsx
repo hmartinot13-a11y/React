@@ -274,26 +274,41 @@ function ProductList({ onHomeClick }) {
                 </div>
             </div>
             {!showCart ? (
-                <div className="product-grid">
-
+                <div className="product-container">
                   {plantsArray.map((categoryItem, catIndex) => (
-                  <div key={catIndex}>
-                   <h2>{categoryItem.category}</h2>
-          
-                   <ul>
-                    {categoryItem.plants.map((plant, plantIndex) => (
-                     <div className="product-card">
-                     <li key={plantIndex}>
-                     <h3>{plant.name}</h3>
-                     <img src={plant.image} alt={plant.name} width="150" />
-                     <p>{plant.description}</p>
-                     <p>Cost: {plant.cost}</p>
-                     </li>
-                     </div>
+                    <div className="product-grid">
+                      <h2>{categoryItem.category}</h2>
+                      <div className="product-list"> 
+                      
+                        {/*<div key={catIndex}>*/}
+                        {categoryItem.plants.map((plant, plantIndex) => (
+                          <div className="product-card" key={plantIndex}>
+                            <h3>{plant.name}</h3>
+                            <img src={plant.image} alt={plant.name} width="150" />
+                            <p>{plant.description}</p>
+                            <p>Cost: {plant.cost}</p>
+                            <>
+                               <button
+                                 className={plant.quantity === 0 ? "btn-warning btn-disabled" : "btn-minus btn-warning"}
+                                 onClick={() => handleRemoveFromCart(index)}
+                                 >&#8211;
+                               </button>
+                               <span className="selected_count">
+                                 {plant.quantity > 0 ? ` ${plant.quantity}` : "0"}
+                               </span>
+                               <button
+                                 className={plant.quantity === 0 ? "btn-warning btn-disabled" : "btn-minus btn-warning"}
+                                 onClick={() => handleAddToCart(index)}
+                                 >&#43;
+                               </button>
+                            </>
+                          
+                          </div>
+                        ))}
+                        {/*</div>*/}
+                       </div>
+                    </div>
                    ))}
-                   </ul>
-                   </div>
-                ))}
                 </div>
             ) : (
                 <CartItem onContinueShopping={handleContinueShopping} />

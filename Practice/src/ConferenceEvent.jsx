@@ -183,7 +183,7 @@ const getItemsFromTotalCost = () => {
                                          <div className="img">
                                             <img src={item.img} alt={item.name} />
                                          </div>
-                                      <div className="text">{item.name}</div>
+                                         <div className="text">{item.name}</div>
                                          <div>${item.cost}</div>
                                             <div className="button_container">
                                                {venueItems[index].name === "Auditorium Hall (Capacity:200)" ? (
