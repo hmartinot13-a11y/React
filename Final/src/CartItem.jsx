@@ -1,10 +1,14 @@
-import React from 'react';
+//import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItemToCart, removeItemFromCart, updateCartQuantity } from './CartSlice';
 import './CartItem.css';
 import ProductList from './ProductList';
 
 const CartItem = ({ onContinueShopping }) => {
+  const [showCart, setShowCart] = useState(true);
+  const [showPlants, setShowPlants] = useState(false); 
+
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.cartItems);
   
@@ -23,8 +27,10 @@ const CartItem = ({ onContinueShopping }) => {
    //};
  
   const handleContinueShopping = (e) => {
-    alert('handleContinueShopping');
-    //<ProductList/>   
+    e.preventDefault();
+    setShowCart(false); 
+    setShowPlants(true);
+    alert('hide cart');
   };
 
   const handleIncrement = (item) => {

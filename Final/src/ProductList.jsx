@@ -259,6 +259,7 @@ function ProductList({ onHomeClick }) {
         e.preventDefault();
         setShowCart(false);
     };
+
     const [addedToCart, setAddedToCart] = useState({});
     const handleAddToCart = (product) => {
         {dispatch(addItemToCart(product));};
@@ -266,7 +267,7 @@ function ProductList({ onHomeClick }) {
           ...prevState, // Spread the previous state to retain existing entries
           [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
         }));
-      };
+    };
     return (
         <div>
             <div className="navbar" style={styleObj}>
