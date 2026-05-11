@@ -11,19 +11,14 @@ export const CartSlice = createSlice({
     //alert('addItem0');
     const { name, image, cost } = action.payload; // Destructure product details from the action payload
     // Check if the item already exists in the cart by comparing names
-    //alert('addItem1');
     //const existingItem = state.cartItems.find(item => item.name === name);
     const existingItem = state.cartItems.find(item => item.name === action.payload.name);
-    //alert('addItem2');
-    //const existingItem = true;
     if (existingItem) {
       // If item already exists in the cart, increase its quantity
       existingItem.quantity++;
-      alert('qt increased');
     } else {
       // If item does not exist, add it to the cart with quantity 1
       state.cartItems.push({ name, image, cost, quantity: 1 });
-      alert('qt 1 added');
     }
     },
     

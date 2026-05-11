@@ -5,12 +5,9 @@ import './CartItem.css';
 import ProductList from './ProductList';
 
 const CartItem = ({ onContinueShopping }) => {
-  //const dispatch = useDispatch();
-  //const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.cartItems);
-  //const cartItems = {name:"toto", image:"https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png", cost:"14", quantity: 10}; 
-
+  
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {0}; 
   //const calculateTotalAmount = () => {
@@ -31,21 +28,15 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleIncrement = (item) => {
-    alert('handleIncrement');
-    //addItemToCart(item);
     {dispatch(addItemToCart(item));};
   };
 
   const handleDecrement = (item) => {
-    alert('handleDecrement');
-    //removeItemFromCart(item);
-    {dispatch(updateCartQuantity(item));};
+     {dispatch(updateCartQuantity(item));};
   };
 
   const handleRemove = (item) => {
-    alert('handleRemove');
-    //updateCartQuantity(item);
-    {dispatch(removeItemFromCart(item));};
+     {dispatch(removeItemFromCart(item));};
   };
 
   // Calculate total cost based on quantity for an item
@@ -88,7 +79,7 @@ const CartItem = ({ onContinueShopping }) => {
       <div className="continue_shopping_btn">
         <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button className="get-started-button1" onClick={(e) => handleCheckoutShopping(e)}>Checkout</button>
       </div>
     </div>
   );

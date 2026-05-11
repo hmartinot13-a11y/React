@@ -8,10 +8,8 @@ import { addItemToCart, removeItemFromCart, updateCartQuantity } from './CartSli
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
-    //const dispatch =useDispatch();
-    //const CardItem = useSelector(state => state.cart.CartItems);
     const dispatch = useDispatch();
-    //const cartItems = useSelector(state => state.cart.CartItems);
+    //const cartItems = useSelector(state => state.cart.cartItems);
  
     
     const plantsArray = [
@@ -263,15 +261,11 @@ function ProductList({ onHomeClick }) {
     };
     const [addedToCart, setAddedToCart] = useState({});
     const handleAddToCart = (product) => {
-        //alert('handleAddToCart1');
         {dispatch(addItemToCart(product));};
-        //{dispatch(handleIncrement(product));};
-        //alert('handleAddToCart2');
         setAddedToCart((prevState) => ({ // Update the local state to reflect that the product has been added
           ...prevState, // Spread the previous state to retain existing entries
           [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
         }));
-        //alert('handleAddToCart3');
       };
     return (
         <div>
