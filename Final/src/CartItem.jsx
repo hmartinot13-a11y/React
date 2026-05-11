@@ -24,14 +24,19 @@ const CartItem = ({ onContinueShopping }) => {
   const handleIncrement = (item) => {
     {dispatch(addItemToCart(item));};
   };
-
+  
+  const handleRemove = (item) => {
+    {dispatch(removeItemFromCart(item));};
+ };
+  
   const handleDecrement = (item) => {
      {dispatch(updateCartQuantity(item));};
-  };
+     if (item.quantity === 1)
+     {   handleRemove(item); 
+     }
+  };  
 
-  const handleRemove = (item) => {
-     {dispatch(removeItemFromCart(item));};
-  };
+
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
