@@ -6,8 +6,8 @@ import './CartItem.css';
 import ProductList from './ProductList';
 
 const CartItem = ({ onContinueShopping }) => {
-  const [showCart, setShowCart] = useState(true);
-  const [showPlants, setShowPlants] = useState(false); 
+  //const [showCart, setShowCart] = useState(true);
+  //const [showPlants, setShowPlants] = useState(false); 
 
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.cartItems);
@@ -27,10 +27,7 @@ const CartItem = ({ onContinueShopping }) => {
    //};
  
   const handleContinueShopping = (e) => {
-    e.preventDefault();
-    setShowCart(false); 
-    setShowPlants(true);
-    alert('hide cart');
+    onContinueShopping(e);
   };
 
   const handleIncrement = (item) => {

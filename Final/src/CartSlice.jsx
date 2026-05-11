@@ -23,7 +23,8 @@ export const CartSlice = createSlice({
     },
     
     removeItemFromCart: (state, action) => {
-    state.cartItems = state.cartItems.filter(item => item.name !== action.payload);
+        const { name, image, cost } = action.payload; 
+        const existingItem = state.cartItems = state.cartItems.filter(item => item.name !== action.payload.name);
     },
     
     updateCartQuantity: (state, action) => {
@@ -31,8 +32,9 @@ export const CartSlice = createSlice({
     // Find the item in the cart that matches the given name
     const itemToUpdate = state.cartItems.find(item => item.name === name);
     if (itemToUpdate) {
-       itemToUpdate.quantity = quantity; // If the item is found, update its quantity to the new value
-    }
+       if (quantity !== 0){
+        itemToUpdate.quantity = quantity-1; // If the item is found, update its quantity to the new value
+    }}
     },
 
   },
