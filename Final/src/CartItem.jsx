@@ -13,18 +13,18 @@ const CartItem = ({ onContinueShopping }) => {
   const cartItems = useSelector(state => state.cart.cartItems);
   
   // Calculate total amount for all products in the cart
-  const calculateTotalAmount = () => {0}; 
-  //const calculateTotalAmount = () => {
+  //const calculateTotalAmount = () => {0}; 
+  const calculateTotalAmount = () => {
 
    
    //alert('calculateTotalAmount');
    //cartItems.forEach((item) => {
    //   if (item.quantity > 0) {
    //     items.push({ ...item, type: "plant" });
-   //}})
-   //const calculateTotalAmount = cart.reduce((total,item) => {
-   //  total + item.cost,0});
-   //};
+   
+    //}})
+   return cartItems.reduce((total,item) => {total + item.cost*item.quantity},0);
+  };
  
   const handleContinueShopping = (e) => {
     onContinueShopping(e);
@@ -44,8 +44,8 @@ const CartItem = ({ onContinueShopping }) => {
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
-   alert('calculateTotalCost');
-   cartItems.reduce((total,item) => total + item.cost,0)
+   //alert('calculateTotalCost');
+   return cartItems.reduce((total,item) => total + item.cost,0);
    //const calculateTotalCost = cart.reduce((item) => {
    //calculateTotalAmount()+item.cost,0});
   };
@@ -70,8 +70,8 @@ const CartItem = ({ onContinueShopping }) => {
                 <span className="cart-item-quantity-value">{item.quantity}</span>
                 <button className="cart-item-button cart-item-button-inc" onClick={() => handleIncrement(item)}>+</button>
               </div>
-              {/*<div className="cart-item-total">Total: ${calculateTotalCost(item)}</div>*/}
-              <div className="cart-item-total">Total: 0</div>
+              <div className="cart-item-total">Total: ${calculateTotalCost(item)}</div>
+              {/*<div className="cart-item-total">Total: 0</div>*/}
               <button className="cart-item-delete" onClick={() => handleRemove(item)}>Delete</button>
             </div>
           </div>
