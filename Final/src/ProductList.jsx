@@ -265,12 +265,13 @@ function ProductList({ onHomeClick }) {
     const handleAddToCart = (product) => {
         //alert('handleAddToCart1');
         {dispatch(addItemToCart(product));};
+        //{dispatch(handleIncrement(product));};
         //alert('handleAddToCart2');
         setAddedToCart((prevState) => ({ // Update the local state to reflect that the product has been added
           ...prevState, // Spread the previous state to retain existing entries
           [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
         }));
-        alert('handleAddToCart3');
+        //alert('handleAddToCart3');
       };
     return (
         <div>

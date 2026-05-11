@@ -8,18 +8,19 @@ const CartItem = ({ onContinueShopping }) => {
   //const dispatch = useDispatch();
   //const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
-  const cartItems = useSelector(state => state.cart.CartItems);
- 
+  const cartItems = useSelector(state => state.cart.cartItems);
+  //const cartItems = {name:"toto", image:"https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png", cost:"14", quantity: 10}; 
 
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {0}; 
   //const calculateTotalAmount = () => {
+
+   
    //alert('calculateTotalAmount');
-   // const items = [];
-   // cart.forEach((item) => {
+   //cartItems.forEach((item) => {
    //   if (item.quantity > 0) {
    //     items.push({ ...item, type: "plant" });
-   //   }
+   //}})
    //const calculateTotalAmount = cart.reduce((total,item) => {
    //  total + item.cost,0});
    //};
@@ -62,8 +63,8 @@ const CartItem = ({ onContinueShopping }) => {
 
   return (
     <div className="cart-container">
-      {/*<h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>*/}
-      <h2 style={{ color: 'black' }}>Total Cart Amount: 0</h2>
+      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      {/*<h2 style={{ color: 'black' }}>Total Cart Amount: 0</h2>*/}
       <div><p>test</p>
         {cartItems.map(item => (
           <div className="cart-item" key={item.name}>
